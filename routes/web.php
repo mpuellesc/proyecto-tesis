@@ -134,7 +134,13 @@ Route::prefix('client')->middleware(['verified'])->group(function () {
         'store'
     ])
     ->names('contact.mail');
-
+    Route::get('publicaciones/categoria/{category}', [WebBlogController::class, 'get_posts_category'])->name('web.get_posts_category');
+    Route::get('publicaciones/etiqueta/{tag}', [WebBlogController::class, 'get_posts_tag'])->name('web.get_posts_tag');
+    Route::get('posts_json', [WebBlogController::class, 'posts_json'])->name('posts.json');
+    Route::get('blog/resultados/', [WebBlogController::class, 'search_posts'])->name('web.search_posts');
+    Route::get('blog/publicaciones/{date}', [WebBlogController::class, 'get_posts_month'])->name('web.get_posts_month');
+    Route::get('blog_detalles/{post}', [WebBlogController::class, 'blog_details'])->name('web.blog_details');
+    Route::get('blog', [WebBlogController::class, 'blog'])->name('web.blog');
     Route::get('products_json', [WebShopController::class, 'products_json'])->name('products.json');
     Route::get('tienda/resultados/', [WebShopController::class, 'search_products'])->name('web.search_products');
     Route::get('productos/categoria/{category}', [WebShopController::class, 'get_products_category'])->name('web.get_products_category');
@@ -142,6 +148,20 @@ Route::prefix('client')->middleware(['verified'])->group(function () {
     Route::get('productos', [WebShopController::class, 'shop_grid'])->name('web.shop_grid');
     Route::get('producto/{product}', [WebShopController::class, 'product_details'])->name('web.product_details');
     Route::get('/', [WebShopController::class, 'welcome'])->name('web.welcome');
+    route::get('productos/marcas/{brand}', [WebShopController::class, 'get_products_brand'])->name('web.get_products_brand');
+    Route::post('subscription_email', [WebController::class, 'subscription_email'])->name('web.subscription_email');
+    Route::get('nosotros', [WebController::class, 'about_us'])->name('web.about_us');
+    Route::get('contacto', [WebController::class, 'contact_us'])->name('web.contact_us');
+    Route::get('registro', [WebController::class, 'login_register'])->name('web.login_register');
+    Route::get('mi_carrito_de_compras', [WebController::class, 'cart'])->name('web.cart');
+    Route::resource('shopping_cart_detail', ShoppingCartDetailController::class)->only([
+    'update'
+    ])->names('shopping_cart_details');
+    route::get('shopping_cart_detail/{shopping_cart_detail}/destroy', [ShoppingCartDetailController::class, 'destroy'])->name('shopping_cart_details.destroy');
+    Route::post('add_to_shopping_cart/{product}/store', [ShoppingCartDetailController::class, 'store'])->name('shopping_cart_details.store');
+    Route::get('add_a_product_to_the_shopping_cart/{product}/store', [ShoppingCartDetailController::class, 'store_a_product'])->name('store_a_product');
+    Route::post('shopping_cart/update', [ShoppingCartController::class, 'update'])->name('shopping_cart.update');
+    Route::get('login_error', [WebController::class, 'login_error'])->name('web.login_error');
 // });
 // Auth::routes();
 Auth::routes(['verify' => true]);
