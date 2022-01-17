@@ -24,6 +24,6 @@ class CategoryProvider extends ServiceProvider
      */
     public function boot()
     {
-        view::composer(['layouts._category_toggle_wrap', 'web._sidebar_categorie'], 'App\Http\ViewComposers\CategoryViewComposer');
+        view::composer(['layouts._category_toggle_wrap', 'layouts._search_products','web._sidebar_categorie'], 'App\Http\ViewComposers\CategoryViewComposer');
     }
 }
