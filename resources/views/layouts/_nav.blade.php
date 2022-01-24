@@ -129,7 +129,7 @@
                     @endcan
                     @can('categories.index')
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('categories.index')}}">Kardex</a>
+                        <a class="nav-link" href="{{route('contability.index')}}">Kardex</a>
                     </li>
                     @endcan
                     @can('tags.index')

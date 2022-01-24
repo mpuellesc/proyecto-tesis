@@ -31,6 +31,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebBlogController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\WebShopController;
+use App\Http\Controllers\ContabilityController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
@@ -73,6 +74,13 @@ Route::prefix('admin')->group(function () {
     Route::resource('sales', SaleController::class)->names('sales')->except([
         'edit', 'update', 'destroy'
     ]);
+
+
+    Route::resource('contability', ContabilityController::class)->names('contability')->except([
+        'edit', 'update', 'destroy'
+    ]);
+
+    
     Route::resource('purchases', PurchaseController::class)->names('purchases')->except([
         'edit', 'update', 'destroy'
     ]);

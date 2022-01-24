@@ -80,17 +80,17 @@ class WebShopController extends Controller
         ])
         ->take(6)->get(['id','name','slug', 'stock', 'sell_price']);
         
-        return view('welcome', compact(
-            'featured_products',
-            'new_products',
-            'sale_products',
-            'latest_posts',
-            'most_viewed_products',
-            'products_offer',
-            'sliders',
-        ));
+        // return view('welcome', compact(
+        //     'featured_products',
+        //     'new_products',
+        //     'sale_products',
+        //     'latest_posts',
+        //     'most_viewed_products',
+        //     'products_offer',
+        //     'sliders',
+        // ));
         
-        // return view('auth/login');
+         return view('auth/login');
     }
 
     public function shop_grid(){
