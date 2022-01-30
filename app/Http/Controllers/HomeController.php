@@ -69,7 +69,7 @@ class HomeController extends Controller
         $prediccion = collect();
         for($i=0; $i<count($x)+3; $i++){
             $venta = $w * ($i+1) + $b;
-            $prediccion->push(intval ($venta));
+            $prediccion->push( ($venta));
         }
 
 
