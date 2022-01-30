@@ -20,6 +20,9 @@ class HomeController extends Controller
             'permission:home'
         ]);
     }
+
+    
+
     public function index()
     {
         $comprasmes = Purchase::where('status', 'VALID')->select(
@@ -46,6 +49,30 @@ class HomeController extends Controller
             DB::raw("SUM(total) as total"),
             DB::raw("DATE_FORMAT(sale_date,'%D %M %Y') as date")
         )->groupBy('date')->take(30)->get();
+
+        
+        $x = array();
+        $y = array();
+        $dia=1;
+        
+        foreach($ventasdia as $vd){
+            array_push($x, $dia);
+            array_push($y, $vd->count);
+            $dia++;
+        }
+        $prediccionVentas = Sale::regresionLineal($x, $y);
+        $w = $prediccionVentas['w'];
+        $b = $prediccionVentas['b'];
+        
+        $data = "";
+        
+        $prediccion = collect();
+        for($i=0; $i<count($x)+3; $i++){
+            $venta = $w * ($i+1) + $b;
+            $prediccion->push(intval ($venta));
+        }
+
+
         $most_ordered_products = OrderDetail::select(
             DB::raw("SUM(quantity) as total"),
             DB::raw("product_id as product_id")
@@ -63,6 +90,6 @@ class HomeController extends Controller
         inner join sales v on dv.sale_id=v.id where v.status="VALID" 
         and MONTH(v.sale_date)=MONTH(curdate()) 
         group by p.code ,p.name, p.id , p.stock order by sum(dv.quantity) desc limit 10');
-        return view('home', compact( 'comprasmes', 'ventasmes', 'ventasdia', 'totales', 'productosvendidos','order_mes','most_ordered_products','orders_of_the_day','orders_of_the_day_status'));
+        return view('home', compact( 'comprasmes', 'ventasmes', 'prediccion', 'ventasdia', 'totales', 'productosvendidos','order_mes','most_ordered_products','orders_of_the_day','orders_of_the_day_status'));
     }
 }
