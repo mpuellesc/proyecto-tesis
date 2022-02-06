@@ -34,7 +34,9 @@
                                     <th>Fecha</th>
                                     <th>Total</th>
                                     <th>Estado</th>
+                                    <th>Estado - SUNAT</th>
                                     <th>Acciones</th>
+                                    <th>Sunat</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,16 +63,69 @@
                                         </a>
                                     </td>
                                     @endif
+                                    @if ($sale->status_sunat == 'ACEPTADO')
+                                    <td>
+                                        <a class="jsgrid-button btn btn-success" href="" title="Editar">
+                                            ACEPTADO <i class="fas fa-check"></i>
+                                        </a>
+                                    </td>
+                                    @elseif($sale->status_sunat == 'RECHAZADO')
+                                    <td>
+                                        <a class="jsgrid-button btn btn-danger" href="" title="Editar">
+                                            RECHAZADO <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                    @elseif($sale->status_sunat == 'ANULADO')
+                                    <td>
+                                        <a class="jsgrid-button btn btn-danger" href="" title="Editar">
+                                            ANULADO <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                    @else
+                                    <td>
+                                        <a class="jsgrid-button btn btn-danger" href="" title="Editar">
+                                            NO ENVIADO <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                    @endif
 
                                     <td style="width: 20%;">
-
-                                        <a href="{{route('sales.pdf', $sale)}}" class="btn btn-outline-danger"
+                                        {{-- <a href="{{route('sales.pdf', $sale)}}" class="btn btn-outline-danger"
+                                        title="Generar PDF"><i class="far fa-file-pdf"></i></a> --}}
+                                        <a href="{{asset('20481046905-01-F001-123.pdf')}}" target="_blank"  class="btn btn-outline-danger"
                                         title="Generar PDF"><i class="far fa-file-pdf"></i></a>
                                         <a href="{{route('sales.print', $sale)}}" class="btn btn-outline-warning"
                                         title="Imprimir boleta"><i class="fas fa-print"></i></a>
                                         <a href="{{route('sales.show', $sale)}}" class="btn btn-outline-info"
-                                        title="Ver detalles"><i class="far fa-eye"></i></a>
-                                   
+                                        title="Ver detalles"><i class="far fa-eye"></i></a>                                  
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <label class="btn btn-outline-danger"
+                                        @if($sale->status_sunat == 'ACEPTADO')
+                                            title="ACEPTADO"><i class="fas fa-check-circle"></i></label> 
+                                            <a href="{{asset('20481046905-01-F001-'.$sale->id.'.xml')}}" target="_blank" class="btn btn-outline-info"
+                                            title="Ver detalles"><i class="far fa-file-archive"></i></a>
+                                            {{-- <a href="{{route('enviar.factura.sales', $sale)}}" class="btn btn-outline-danger"
+                                            title="Anular Envío"><i class="fas fa-check-circle"></i></a> --}}
+                                            {{-- <label class="btn btn-outline-warning"
+                                            title="ACEPTADO"><i class="fas fa-check-circle"></i></label> --}}
+                                        @elseif($sale->status_sunat == null && $sale->status == 'VALID')
+                                            <a href="{{route('enviar.factura.sales', [$sale, $fecha1])}}" class="btn btn-outline-danger"
+                                            title="Enviar a SUNAT"><i class="fas fa-paper-plane"></i></a>
+                                            {{-- <label class="btn btn-outline-warning"
+                                            title="RECHAZADO"><i class="fas fa-times"></i></label> --}}
+                                        @elseif(($sale->status != 'VALID'))
+                                            {{-- <label class="btn btn-outline-warning"
+                                            title="ANULADO"><i class="fas fa-question-circle"></i></label> --}}
+                                            <label class="btn btn-outline-warning"
+                                            title="ANULADO"><i class="fas fa-times-circle"></i></label>
+                                        @else
+                                            {{-- <label class="btn btn-outline-warning"
+                                            title="POR ENVIAR"><i class="fas fa-question-circle"></i></label>
+                                            <a href="{{route('sales.show', $sale)}}" class="btn btn-outline-info"
+                                            title="Ver detalles"><i class="far fa-file-archive"></i></a>  --}}
+                                        @endif
+                                                                         
                                     </td>
                                 </tr>
                                 @endforeach
@@ -81,11 +136,14 @@
             </div>
         </div>
     </div>
+
 </div>
 @endsection
 @section('scripts')
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function() {
         var table = $('#sales_listing').DataTable({

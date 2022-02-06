@@ -181,7 +181,7 @@
     <div class="grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Proyección de ventas diario</h4>
+          <h4 class="card-title">Predicción de ventas diario</h4>
           <div id="c3-proyeccion"></div>
         </div>
       </div>
@@ -1249,11 +1249,11 @@
                 }
             });
 
-          var chart = c3.generate({
+            var chart = c3.generate({
             bindto: '#c3-proyeccion',
             data: {
                 columns: [
-                  ['Predicción', <?php for($i=0; $i<5; $i++)
+                  ['Predicción', <?php for($i=0; $i<$ventasdia->count()+7; $i++)
                       {echo ''. $prediccion[$i].',';} ?>],
                   ['Ventas', <?php foreach ($ventasdia as $reg)
                         {echo ''. $reg->count.',';} ?>]
@@ -1265,12 +1265,12 @@
                     type: 'category',
                     categories: [<?php foreach ($ventasdia as $ventadia)
                     {$dia = $ventadia->date;
-                    echo '"'. $dia.'",';} ?> 'Dia siguiente', 'Dia siguiente', 'Dia siguiente']
+                    echo '"'. $dia.'",';} ?> '5th February 2022', '6th February 2022', '7th February 2022','8th February 2022', '9th February 2022', '10th February 2022', '11th February 2022']
                 }
 
             },
             
-          });
+      });
     });
 </script>
 

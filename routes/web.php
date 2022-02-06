@@ -30,6 +30,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebBlogController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\TimeController;
 use App\Http\Controllers\WebShopController;
 use App\Http\Controllers\ContabilityController;
 use Illuminate\Support\Facades\Route;
@@ -99,6 +100,12 @@ Route::prefix('admin')->group(function () {
     Route::put('orders_update/{id}', [OrderController::class, 'orders_update'])->name('orders_update');
     Route::get('reports_day', [ReportController::class, 'reports_day'])->name('reports.day');
     Route::get('reports_date', [ReportController::class , 'reports_date'])->name('reports.date');
+    Route::get('reports_prediction', [ReportController::class , 'reports_prediction'])->name('reports.prediction');
+    
+    Route::get('time_factura', [TimeController::class, 'time_factura'])->name('time.factura');
+    Route::get('time_busqueda', [TimeController::class , 'time_busqueda'])->name('time.busqueda');
+    
+    
     Route::post('sales/report_results', [ReportController::class, 'report_results'])->name('report.results');
     Route::post('upload_image/{id}', [AjaxController::class, 'upload_image'])->name('upload.image');
     Route::post('upload_images_product/{id}', [AjaxController::class, 'upload_images_product'])->name('upload_images_product');
@@ -111,6 +118,13 @@ Route::prefix('admin')->group(function () {
     Route::get('change_status/products/{product}', [ProductController::class, 'change_status'])->name('change.status.products');
     Route::get('change_status/purchases/{purchase}', [PurchaseController::class, 'change_status'])->name('change.status.purchases');
     Route::get('change_status/sales/{sale}', [SaleController::class, 'change_status'])->name('change.status.sales');
+    
+    Route::get('enviar_factura/sales/{sale}/{fecha1}', [SaleController::class, 'enviar_factura'])->name('enviar.factura.sales');
+    Route::get('factura_pdf/sales/{sale}', [SaleController::class, 'factura_pdf'])->name('factura.pdf.sales');
+    Route::get('time_product/time/{fecha1}', [ProductController::class, 'time_product'])->name('time.product');
+    Route::get('timeF_excel', [TimeController::class, 'timeF_excel'])->name('timeF.excel');
+    Route::get('timeB_excel', [TimeController::class, 'timeB_excel'])->name('timeB.excel');
+
     Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode'])->name('get_products_by_barcode');
     Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id'])->name('get_products_by_id');
     Route::get('print_barcode', [ProductController::class, 'print_barcode'])->name('print_barcode');

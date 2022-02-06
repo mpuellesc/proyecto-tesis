@@ -67,4 +67,6 @@ class Sale extends Model
 
         return array("w" => $w, "b" => $b);
     }
+
+    
 }

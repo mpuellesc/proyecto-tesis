@@ -48,9 +48,8 @@ class HomeController extends Controller
             DB::raw("count(*) as count"),
             DB::raw("SUM(total) as total"),
             DB::raw("DATE_FORMAT(sale_date,'%D %M %Y') as date")
-        )->groupBy('date')->take(30)->get();
+        )->groupBy('date')->orderby('id')->take(30)->get();
 
-        
         $x = array();
         $y = array();
         $dia=1;
@@ -67,11 +66,10 @@ class HomeController extends Controller
         $data = "";
         
         $prediccion = collect();
-        for($i=0; $i<count($x)+3; $i++){
+        for($i=0; $i<count($x)+10; $i++){
             $venta = $w * ($i+1) + $b;
             $prediccion->push( ($venta));
         }
-
 
         $most_ordered_products = OrderDetail::select(
             DB::raw("SUM(quantity) as total"),

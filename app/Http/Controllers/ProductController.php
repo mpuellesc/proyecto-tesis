@@ -10,7 +10,10 @@ use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Models\Provider;
 use App\Models\Tag;
+use App\Models\Time;
 use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
+use DateTime;
 
 class ProductController extends Controller
 {
@@ -34,8 +37,12 @@ class ProductController extends Controller
     }
     public function index()
     {
+        $fecha1 = new DateTime();//fecha inicial
+        $fecha1 = $fecha1->format('Y-m-d H:i:s.v');
+
+
         $products = Product::with('category')->get();
-        return view('admin.product.index', compact('products'));
+        return view('admin.product.index', compact('products', 'fecha1'));
     }
     public function create()
     {
@@ -71,6 +78,26 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->back()->with('toast_success', '¡Producto eliminado con éxito!');
+    }
+
+    public function time_product($fecha1)
+    {
+        $fecha1 = new DateTime($fecha1) ;
+        $fecha1 = Carbon::parse($fecha1);
+        //$fecha1 = $fecha1->format('Y:m:d h:i:s.v');
+        $fecha2 = new DateTime();//fecha de cierre
+        $fecha2 = Carbon::parse($fecha2);
+        
+        //dd($fecha2);
+        $intervalo = $fecha1->diffInSeconds($fecha2);
+        
+        $time = new Time;
+        $time->type = 'BUSQUEDA';
+        $time->start = $fecha1;
+        $time->end = $fecha2;
+        $time->difference = $intervalo;
+        $time->save();
+        return redirect()->back()->with('toast_success', '¡Tiempo de búsqueda guardado!');
     }
 
     public function change_status(Product $product)

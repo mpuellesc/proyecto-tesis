@@ -18,9 +18,18 @@
             <ol class="breadcrumb breadcrumb-custom">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Panel administrador</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Productos</li>
+
             </ol>
         </nav>
     </div>
+    <div class="row">
+        <div class="col-lg-11"></div>
+        <div class="">
+        <a href="{{route('time.product', $fecha1)}}" class="btn btn-outline-danger"
+        title="Enviar tiempo de búsqueda"><i class="fas fa-paper-plane"></i></a>
+        </div>
+    </div>
+    
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">

@@ -89,6 +89,7 @@
                                     </tr>
 
                                 </tfoot>
+                                
                                 <tbody>
                                     @foreach($saleDetails as $saleDetail)
                                     <tr>

@@ -184,6 +184,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
         Intervention\Image\ImageServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
@@ -245,6 +247,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

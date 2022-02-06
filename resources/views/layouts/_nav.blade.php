@@ -44,10 +44,39 @@
                         <a class="nav-link" href="{{route('reports.date')}}">Reportes por fecha</a>
                     </li>
                     @endcan
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('reports.prediction')}}">Predicción de ventas</a>
+                    </li>
                 </ul>
             </div>
         </li>
         {{--  @endcan  --}}
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#page-layouts2" aria-expanded="false"
+                aria-controls="page-layouts">
+                <i class="fas fa-chart-line menu-icon"></i>
+                <span class="menu-title">Tiempos</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="page-layouts2">
+                <ul class="nav flex-column sub-menu">
+                    
+                    {{-- <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link" href="{{route('time.reporte')}}">Reportes</a>
+                    </li> --}}
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('time.factura')}}">Facturación</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('time.busqueda')}}">Búsqueda</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
         @can('purchases.index')
         <li class="nav-item">
             <a class="nav-link" href="{{route('purchases.index')}}">
@@ -113,7 +142,7 @@
         </li>
         {{--  @endcan  --}}
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#contabilidad" aria-expanded="false"
                 aria-controls="contabilidad">
                 <i class="fas fa-signal menu-icon menu-icon"></i>
@@ -144,7 +173,7 @@
                     @endcan
                 </ul>
             </div>
-        </li>
+        </li> --}}
         {{--  @endcan  --}}
        
         @can('posts.index')

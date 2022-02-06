@@ -1,4 +1,4 @@
-
+{{-- 
 <div class="form-group">
     <label for="name">Nombre</label>
     <input 
@@ -55,9 +55,9 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
-</div>
+</div> --}}
 
-{{--  <div class="form-row">
+ <div class="form-row">
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="name">Nombre</label>
@@ -121,9 +121,9 @@
             @enderror
         </div>
     </div>
-</div>  --}}
+</div> 
 
-{{--  <div class="form-row">
+<div class="form-row">
     <div class="form-group col-md-4">
         <div class="form-group">
             <label for="dni">DNI</label>
@@ -205,7 +205,7 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
-</div>  --}}
+</div> 
 <button type="submit" class="btn btn-primary mr-2">{{ __($btnText) }}</button>
 <a href="{{ URL::previous() }}" class="btn btn-light">
     Cancelar
