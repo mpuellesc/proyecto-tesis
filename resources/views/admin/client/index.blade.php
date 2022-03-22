@@ -33,6 +33,7 @@
                                     <th>DNI</th>
                                     <th>Teléfono / Celular</th>
                                     <th>Correo electrónico</th>
+                                    <th>Perfil</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -43,9 +44,12 @@
                                     <td>
                                         <a href="{{route('clients.show',$client)}}">{{$client->name}}</a>
                                     </td>
-                                    <td>{{$client->dni}}</td>
-                                    <td>{{$client->phone}}</td>
-                                    <td>{{$client->email}}</td>
+                                    <td>{{ (isset($client->profile->dni)) ? $client->profile->dni : '' }}</td>
+                                    <td>{{ (isset($client->profile->phone)) ? $client->profile->phone : '' }}</td>
+                                    <td>{{ (isset($client->email)) ? $client->email : '' }}</td>
+                                    <td class="py-1">
+                                        <img src="{{ (isset($client->image->url)) ? $client->image->url : '' }}" alt="Foto" class="img-sm">
+                                    </td>
                                     <td>
                                         <form method="POST" action="{{route('clients.destroy',$client)}}" id="delete-item_{{$client->id}}">
 

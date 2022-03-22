@@ -39,9 +39,11 @@ class ProductController extends Controller
     {
         $fecha1 = new DateTime();//fecha inicial
         $fecha1 = $fecha1->format('Y-m-d H:i:s.v');
+        $products = Product::store_products()
+    ->with(['images' => function($query) {
+        $query->select('id', 'url', 'imageable_id');},'category'])->get();
 
-
-        $products = Product::with('category')->get();
+        //$products = Product::with('category')->get();
         return view('admin.product.index', compact('products', 'fecha1'));
     }
     public function create()

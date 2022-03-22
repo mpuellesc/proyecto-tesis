@@ -85,8 +85,8 @@
            
             layoutTemplates: {main2: '{preview} ' + ' {remove} {browse}'},
             allowedFileExtensions: ["jpg", "png", "gif"],
-            maxImageWidth: 160,
-            maxImageHeight: 65
+            maxImageWidth: 1600,
+            maxImageHeight: 1665
         });
     });
 </script>

@@ -48,7 +48,8 @@
                 </div>
             </div>
             <div class="kv-avatar-hint mb-3">
-                <small id="fileHelpId" class="form-text text-muted">Se recomienda que el tamaño de la imagen sea de <strong>260x65</strong> a <strong>270x75</strong>px.</small>
+                <small id="fileHelpId" class="form-text text-muted">Se recomienda que el tamaño
+                     de la imagen sea de <strong>260x65</strong> a <strong>270x75</strong>px.</small>
             </div>
             @error('file')
                 <div class="alert alert-danger" role="alert">

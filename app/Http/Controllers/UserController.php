@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Image as Intervention;
+
 
 class UserController extends Controller
 {
@@ -37,11 +39,24 @@ class UserController extends Controller
         $roles = Role::get();
         return view('admin.user.create', compact('roles'));
     }
+
+    public function upload_image($image){
+        $nombre = time().$image->getClientOriginalName();
+        $formatted_image = Intervention::make($image);
+        $formatted_image->fit(160, 65);
+        $formatted_image->save(public_path('/image/'. $nombre));
+        $ruta = '/image/'.$nombre;
+        return $ruta;
+    }
+
     public function store(Request $request)
     {
         $user = User::create($request->all());
         $user->update(['password'=> Hash::make($request->password)]);
         $user->roles()->sync($request->get('roles'));
+        $image = $request->file('file');
+        $ruta = self::upload_image($image);
+        $user->image()->create(['url' => $ruta]);
         return redirect()->route('users.index')->with('toast_success', '¡Usuario creado con éxito!');
     }
     public function show(User $user)

@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-body">
                     {!! Form::model($client,['route'=>['clients.update',$client], 'method'=>'PUT','files' => true]) !!}
-                    @include('admin.client._form',[
+                    @include('admin.client._form2',[
                         'btnText' => 'Actualizar',
                     ])
                     {!! Form::close() !!}

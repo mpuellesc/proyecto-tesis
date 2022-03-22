@@ -1,0 +1,14 @@
+[
+	{ "s": "I", "p": [2] },
+	{ "s": "ID", "p": [30, 29, 16] },
+	{ "s": "IMPRESORA", "p": [33] },
+	{ "s": "IMPUESTO", "p": [12] },
+	{ "s": "INFORMACION", "p": [7] },
+	{ "s": "INGRESAR", "p": [12, 4] },
+	{ "s": "INICIAR", "p": [4] },
+	{ "s": "INICIO", "p": [37, 1] },
+	{ "s": "INSERTAR", "p": [4] },
+	{ "s": "INSTRUCCIONES", "p": [1] },
+	{ "s": "INVENTARIO", "p": [15, 16] },
+	{ "s": "ITEM", "p": [6] }
+]

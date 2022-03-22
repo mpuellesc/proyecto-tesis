@@ -1,0 +1,14 @@
+[
+	{ "s": "R", "p": [2] },
+	{ "s": "REALIZA", "p": [12] },
+	{ "s": "RECORDAR", "p": [4] },
+	{ "s": "REDES", "p": [23] },
+	{ "s": "REELEVANTE", "p": [7] },
+	{ "s": "REGISTRADOS", "p": [30, 29] },
+	{ "s": "REGISTRAR", "p": [12, 29, 16] },
+	{ "s": "REGRESAR", "p": [12] },
+	{ "s": "REPORTES", "p": [9, 8, 10] },
+	{ "s": "RESGISTRAR", "p": [12] },
+	{ "s": "ROL", "p": [30, 29] },
+	{ "s": "ROLES", "p": [30] }
+]

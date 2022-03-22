@@ -32,6 +32,7 @@
                                     <th>Nombre</th>
                                     <th>Correo electrónico</th>
                                     <th>Rol</th>
+                                    <th>Perfil</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -52,6 +53,9 @@
                                                 , 
                                             @endif
                                         @endforeach
+                                    </td>
+                                    <td class="py-1">
+                                        <img src="{{(isset($user->image->url)) ? $user->image->url : ''}}" alt="" class="img-sm">
                                     </td>
                                     <td>
                                         

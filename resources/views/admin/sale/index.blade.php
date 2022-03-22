@@ -99,6 +99,7 @@
                                         <a href="{{route('sales.show', $sale)}}" class="btn btn-outline-info"
                                         title="Ver detalles"><i class="far fa-eye"></i></a>                                  
                                     </td>
+                                    
                                     <td style="width: 20%;">
                                         <label class="btn btn-outline-danger"
                                         @if($sale->status_sunat == 'ACEPTADO')
@@ -112,6 +113,7 @@
                                         @elseif($sale->status_sunat == null && $sale->status == 'VALID')
                                             <a href="{{route('enviar.factura.sales', [$sale, $fecha1])}}" class="btn btn-outline-danger"
                                             title="Enviar a SUNAT"><i class="fas fa-paper-plane"></i></a>
+                                            <a href="{{route('enviar.factura.sales', [$sale, $fecha1])}}">Enviar</a>
                                             {{-- <label class="btn btn-outline-warning"
                                             title="RECHAZADO"><i class="fas fa-times"></i></label> --}}
                                         @elseif(($sale->status != 'VALID'))

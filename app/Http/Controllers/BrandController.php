@@ -32,7 +32,7 @@ class BrandController extends Controller
     }
     public function store(StoreRequest $request, Brand $brand)
     {
-        // $brand->my_store($request);
+        $brand->my_store($request);
         return redirect()->route('brands.index')->with('toast_success', '¡Marca creada con éxito!');
     }
     public function edit(Brand $brand)
@@ -41,15 +41,15 @@ class BrandController extends Controller
     }
     public function update(UpdateRequest $request, Brand $brand)
     {
-        // $brand->my_update($request);
+        $brand->my_update($request);
         return redirect()->route('brands.index')->with('toast_success', '¡Marca actualizada con éxito!');
     }
     public function destroy(Brand $brand)
     {
         try {
-            // $brand->delete();
+            $brand->delete();
         } catch (Throwable $e) {
-            // report($e);
+            report($e);
             return redirect()->back()->with('toast_error', '¡La marca tiene productos asociados!');
         }
         return redirect()->back()->with('toast_success', '¡Marca eliminada con éxito!');

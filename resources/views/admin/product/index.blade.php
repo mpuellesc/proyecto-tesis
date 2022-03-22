@@ -75,6 +75,10 @@
                                     <td>
                                         {{ (isset($product->category->name)) ? $product->category->name : '' }}
                                     </td>
+                                    <td>
+                                        <img src="{{$product->images->pluck('url')[0]}}" class="img-pri" alt="{{$product->name}}" width="300" height="338">
+                                        <img src="{{$product->images->pluck('url')[1]}}" class="img-sec" alt="{{$product->name}}" width="300" height="338">
+                                    </td>
                                     <td style="width: 20%;">
 
                                         <form method="POST" action="{{route('products.destroy',$product)}}" id="delete-item_{{$product->id}}">

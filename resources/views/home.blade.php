@@ -15,6 +15,7 @@
 @section('preference')
 @endsection
 @section('content')
+
 <div class="content-wrapper">
      <div class="page-header">
         <h3 class="page-title">

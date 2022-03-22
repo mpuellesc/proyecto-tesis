@@ -410,7 +410,7 @@
                                         <figure class="product-media">
                                             <a href="{{route('web.product_details', $product)}}">
                                                 <img src="{{$product->images->pluck('url')[0]}}" class="img-pri" alt="{{$product->name}}" width="300" height="338">
-                                                <img src="{{$product->images->pluck('url')[1]}}" class="img-sec" alt="{{$product->name}} width="300" height="338"">
+                                                <img src="{{$product->images->pluck('url')[1]}}" class="img-sec" alt="{{$product->name}}" width="300" height="338">
                                             </a>
                                             <div class="product-action-horizontal">
                                                 <a href="{{route('store_a_product',$product)}}" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>

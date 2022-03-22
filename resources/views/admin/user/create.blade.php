@@ -24,7 +24,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    {!! Form::open(['route'=>'users.store', 'method'=>'POST']) !!}
+                    {!! Form::open(['route'=>'users.store', 'method'=>'POST', 'files' => true]) !!}
 
                     <div class="form-group">
                         <label for="name">Nombre</label>
@@ -39,6 +39,23 @@
                           <label for="password">Contraseña</label>
                           <input type="password" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="file">Foto de perfil</label><br>
+                            <div class="kv-avatar">
+                                <div class="file-loading">
+                                    <input id="file" name="file" type="file">
+                                </div>
+                            </div>
+                            @error('file')
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                            <div id="kv-avatar-errors-1" class="center-block" ></div>
+                        </div>
+                    </div>
 
                     @include('admin.user._form')
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>

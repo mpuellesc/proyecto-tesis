@@ -93,6 +93,14 @@
             </a>
         </li>
         @endcan
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('sales.index')}}">
+                <i class="fas fa-copy menu-icon"></i>
+                <span class="menu-title">Facturación</span>
+            </a>
+        </li>
+
         @can('orders.index')
         <li class="nav-item">
             <a class="nav-link" href="{{route('orders.index')}}">
@@ -142,7 +150,7 @@
         </li>
         {{--  @endcan  --}}
 
-        {{-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#contabilidad" aria-expanded="false"
                 aria-controls="contabilidad">
                 <i class="fas fa-signal menu-icon menu-icon"></i>
@@ -173,7 +181,7 @@
                     @endcan
                 </ul>
             </div>
-        </li> --}}
+        </li>
         {{--  @endcan  --}}
        
         @can('posts.index')
@@ -295,6 +303,15 @@
                 </ul>
             </div>
         </li> 
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                aria-controls="page-layouts">
+                <i class="fas fa-sun menu-icon"></i>
+                <span class="menu-title">Gestión del sistema</span>
+            </a>
+        </li> 
+
         {{--  @endcan  --}}
         {{-- <li class="nav-item">
             <a class="nav-link" href="https://www.facebook.com/puellesyou/">
@@ -302,5 +319,11 @@
                 <span class="menu-title">YouTube</span>
             </a>
         </li> --}}
+        <li class="nav-item">
+            <i class="fas fa-book menu-icon"></i>
+            <a class="nav-link" href="">
+                <span class="menu-title">Ayuda</span>
+            </a>
+        </li>
     </ul>
 </nav>
