@@ -125,6 +125,10 @@ Route::prefix('admin')->group(function () {
     Route::get('timeF_excel', [TimeController::class, 'timeF_excel'])->name('timeF.excel');
     Route::get('timeB_excel', [TimeController::class, 'timeB_excel'])->name('timeB.excel');
 
+    Route::post('clients/consult_dni', [UserController::class, 'consult_dni'])->name('clients.consult.dni');
+
+    //Route::get('result_ruc/clients/{ruc}', ClientController::class, 'result_ruc')->names('result.ruc.clients');
+
     Route::get('get_products_by_barcode', [ProductController::class, 'get_products_by_barcode'])->name('get_products_by_barcode');
     Route::get('get_products_by_id', [ProductController::class, 'get_products_by_id'])->name('get_products_by_id');
     Route::get('print_barcode', [ProductController::class, 'print_barcode'])->name('print_barcode');

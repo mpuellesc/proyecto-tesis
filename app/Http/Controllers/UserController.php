@@ -8,7 +8,8 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Image as Intervention;
-
+use Peru\Jne\DniFactory;
+use Peru\Sunat\RucFactory;
 
 class UserController extends Controller
 {
@@ -37,6 +38,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::get();
+        $band=true;
         return view('admin.user.create', compact('roles'));
     }
 
@@ -96,5 +98,57 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
         ]);
         return back();
+    }
+
+    public function consult_dni(Request $request){
+       
+        $doc=$request->doc;
+        if ($doc=="dni" && $request->dni!==null) {
+            
+            $factory = new DniFactory();
+            $cs = $factory->create();
+
+            $person = $cs->get($request->dni);
+            if (!$person) {
+                echo 'Not found';
+                return back();
+            }
+
+            $res= json_decode(json_encode($person), true);
+            
+            return view('admin.client.create', compact('res'));
+
+        } else if($doc=="ruc" && $request->ruc!=null) {
+            $factory = new RucFactory();
+            $cs = $factory->create();
+
+            $company = $cs->get($request->ruc);
+            if (!$company) {
+                echo 'Not found';
+                return back();
+            }
+            $res2 =json_decode(json_encode($company), true);
+            //dd($res2);
+            return view('admin.client.create', compact('res2'));
+        }
+        return back();
+        
+    }
+
+    public function consult_ruc($ruc){
+        require 'vendor/autoload.php';
+
+        $ruc = '20100070970';
+
+        $factory = new RucFactory();
+        $cs = $factory->create();
+
+        $company = $cs->get($ruc);
+        if (!$company) {
+            echo 'Not found';
+            return;
+        }
+
+        return json_encode($company);
     }
 }

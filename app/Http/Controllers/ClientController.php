@@ -9,7 +9,8 @@ use App\Http\Requests\Client\UpdateRequest;
 use App\Models\Profile;
 use Throwable;
 use Image as Intervention;
-
+use Peru\Jne\DniFactory;
+use Peru\Sunat\RucFactory;
 
 class ClientController extends Controller
 {
@@ -46,8 +47,16 @@ class ClientController extends Controller
     }
 
     public function store(StoreRequest $request)
-    {
+    {dd($request);
         $user = User::create($request->all())->assignRole('Client');
+        
+        $user->profile()->create([
+            'dni'=>$request->dni,
+            'ruc'=>$request->ruc,
+            'phone'=>$request->phone,
+            'address'=>$request->address,
+        ]);
+
         $image = $request->file('file');
         $ruta = self::upload_image($image);
         $user->image()->create(['url' => $ruta]);
@@ -88,16 +97,6 @@ class ClientController extends Controller
         return redirect()->route('clients.index')->with('toast_success', '¡Cliente actualizado con éxito!');
     }
 
-    public function update_client(Request $request, User $client){
-        $client->update($request->get('id', 'name', 'surnames'));
-        $client->profile()->update([
-            'dni'=>$request->dni,
-            'ruc'=>$request->ruc,
-        ]);
-        //$client->update_client($request);
-        return back();
-    }
-
     public function destroy(User $client)
     {
         try {
@@ -107,5 +106,41 @@ class ClientController extends Controller
             return redirect()->back()->with('toast_error', '¡El cliente está asociado a otros registros!');
         }
         return redirect()->route('clients.index');
+    }
+
+    public function consult_dni(StoreRequest $request){
+        
+        //$dni = '46658592';
+        
+        $factory = new DniFactory();
+        $cs = $factory->create();
+        $person = $cs->get($request->dni);
+
+        if (!$person) {
+            echo 'Not found';
+            return;
+        }
+        $datos= json_encode($person);
+        dd($datos);
+        $ap=$datos["apellidoPaterno"];
+        $am=$datos["apellidoMaterno"];
+        $ape=$ap.$am;
+
+        $user = User::create(['name'=>$datos["nombres"],'surnames'=>$ape,])->assignRole('Client');
+        $user->profile()->create(['dni'=>$request->dni,]);
+
+        return view('admin.client.create', compact('user'));
+    }
+    public function consult_ruc($ruc){
+        require 'vendor/autoload.php';
+        //$ruc = '20100070970';
+        $factory = new RucFactory();
+        $cs = $factory->create();
+        $company = $cs->get($ruc);
+        if (!$company) {
+            echo 'Not found';
+            return;
+        }
+        return json_encode($company);
     }
 }

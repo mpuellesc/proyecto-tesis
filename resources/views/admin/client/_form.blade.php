@@ -1,79 +1,12 @@
-<div class="form-group">
-    <label for="client_id">Tipo de documento</label>
-    <select class="form-control" name="client_id" id="client_id"> 
-        <option value="0">DNI</option>
-        <option value="1">RUC</option>
-    </select>
-</div>
-
-<div class="form-row">
-    <div class="form-group col-md-4">
-        <div class="form-group">
-            <label for="dni">DNI</label>
-            <input 
-            type="number"
-            class="form-control
-            @error('dni') 
-                is-invalid
-            @enderror
-            "
-            name="dni"
-            id="dni"
-            value="{{--old('dni', $client->profile->dni)--}}"
-            required>
-            @error('dni')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-    </div>
-    <div class="form-group col-md-4">
-        <div class="form-group">
-            <label for="ruc">RUC</label>
-            <input type="number" 
-            class="form-control
-            @error('ruc') 
-                is-invalid
-            @enderror
-            "
-            name="ruc" 
-            id="ruc"
-            value="{{--old('ruc', $client->profile->ruc)--}}"
-            >
-            @error('ruc')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-    </div>
-    <div class="form-group col-md-4">
-        <div class="form-group">
-            <label for="phone">Teléfono \ Celular</label>
-            <input type="number" 
-            class="form-control
-            @error('phone') 
-                is-invalid
-            @enderror
-            "
-            name="phone" 
-            id="phone"
-            value="{{--old('phone', $client->profile->phone)--}}"
-            required
-            >
-            @error('phone')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
+<div class="form-group col-md-4">
+    <div class="form-group">
+        <input type="number" class="d-none" name="dni" id="dni" value="{{old('dni', (isset($res)) ? $res['dni'] : '')}}" placeholder="">
     </div>
 </div>
 <div class="form-group">
     <label for="name">Nombre</label>
     <input 
-    type="text"
+    type="text" disabled
     class="form-control
     @error('name') 
         is-invalid
@@ -81,7 +14,7 @@
     "
     name="name"
     id="name"
-    value="{{--old('name', $client->name)--}}"
+    value="{{old('name', (isset($res['nombres'])) ? $res['nombres'] : '')}}"
     required>
     @error('name')
     <span class="invalid-feedback" role="alert">
@@ -90,9 +23,11 @@
     @enderror
 </div>
 <div class="form-group">
-    <label for="surnames">Apellidos</label>
+    @if (isset($res['dni']))
+    <label for="surnames">Razon</label>
+    @endif
     <input 
-    type="text"
+    type="text" disabled
     class="form-control
     @error('surnames') 
         is-invalid
@@ -100,7 +35,7 @@
     "
     name="surnames"
     id="surnames"
-    value="{{--old('surnames', $client->surnames)--}}"
+    value="{{old('surnames', (isset($res['apellidoPaterno']) and $res['apellidoMaterno']) ? $res['apellidoPaterno'].' '.$res['apellidoMaterno'] : '')}}"
     required>
     @error('surnames')
     <span class="invalid-feedback" role="alert">
@@ -217,6 +152,28 @@
     </span>
     @enderror
 </div> 
+
+<div class="form-group col-md-4">
+    <div class="form-group">
+        <label for="phone">Teléfono \ Celular</label>
+        <input type="number" 
+        class="form-control
+        @error('phone') 
+            is-invalid
+        @enderror
+        "
+        name="phone" 
+        id="phone"
+        value="{{--old('phone', $client->profile->phone)--}}"
+        required
+        >
+        @error('phone')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
+</div>
 
 <div class="col-md-12">
     <div class="form-group">
