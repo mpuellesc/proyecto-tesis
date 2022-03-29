@@ -68,7 +68,7 @@
 <body>
     <div class="wrapper box-layout">
         <!-- modal -->
-        <div class="modal fade" id="modalInicio" role="dialog">
+        {{-- <div class="modal fade" id="modalInicio" role="dialog">
             <div class="modal-dialog modal-lg">
               <!-- Modal content-->
              <div class="modal-content">
@@ -201,7 +201,7 @@
                 </div>
               </div>
             </div>
-        </div>
+        </div> --}}
         <!-- fin modal -->
         <!-- header area start -->
         <header>
