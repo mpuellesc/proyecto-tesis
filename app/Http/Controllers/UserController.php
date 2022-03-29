@@ -28,6 +28,18 @@ class UserController extends Controller
             'permission:web.update_password',
         ]);
     }
+
+    public function listar() {
+        $users = User::with('roles')->
+        get();
+        return view('admin.user.index', compact('users'));
+    }
+
+    public function crear() {
+        $roles = Role::get();
+        $band=true;
+        return view('admin.user.create', compact('roles'));
+    }
     
     public function index()
     {

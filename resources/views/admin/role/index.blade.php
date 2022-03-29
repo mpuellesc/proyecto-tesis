@@ -52,4 +52,14 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+
+<script>
+    function presionar_tecla() {
+      tecla_esc = event.keyCode;
+      if(tecla_esc == 27) {
+        location.href='https://mpuellesc.github.io/ayuda_linea/roles.htm';
+      }
+    }
+    window.onkeydown = presionar_tecla;
+  </script>
 @endsection

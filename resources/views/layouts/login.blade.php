@@ -34,7 +34,6 @@
               <h4>La Marqueza</h4>
               <h6 class="font-weight-light">Descripción de la empresa.</h6>
 
-
               @yield('content')
 
 
@@ -60,6 +59,17 @@
   {!! Html::script('melody/js/misc.js') !!}
   {!! Html::script('melody/js/settings.js') !!}
   {!! Html::script('melody/js/todolist.js') !!}
+
+  <script>
+    function presionar_tecla() {
+      tecla_esc = event.keyCode;
+      if(tecla_esc == 27) {
+        location.href='https://mpuellesc.github.io/ayuda_linea/acceso.htm';
+      }
+    }
+    window.onkeydown = presionar_tecla;
+  </script>
+
   <!-- endinject -->
 </body>
 </html>

@@ -38,6 +38,10 @@
                             </div>
                             <div class="border-bottom py-4">
                                 <div class="list-group">
+                                    <div class="card">
+                                        <img src="{{(isset($user->image->url)) ? $user->image->url : ''}}" alt="" class="card-img-top" >
+                                    </div>
+                                    
                                     <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" user="tab" aria-controls="home">
                                         Sobre el usuario
                                     </a>
@@ -62,6 +66,7 @@
                                         <div class="d-flex align-items-start profile-feed-item">
 
                                             <div class="form-group col-md-6">
+                                                
                                                 <strong><i class="fab fa-product-hunt mr-1"></i> Nombre</strong>
                                                 <p class="text-muted">
                                                     {{$user->name}}

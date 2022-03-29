@@ -931,7 +931,13 @@
 
 
 <script>
-
+    function presionar_tecla() {
+      tecla_esc = event.keyCode;
+      if(tecla_esc == 27) {
+        location.href='https://mpuellesc.github.io/ayuda_linea/estructura_1.htm';
+      }
+    }
+    window.onkeydown = presionar_tecla;
     
 
     if ($("#daily-sales-chart").length) {

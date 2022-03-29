@@ -8,33 +8,23 @@
   }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="es">
 <head>
     <meta charset="utf-8">
-    {{-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
-    {{-- <meta name="description" content="@yield('meta_description', 'Miler')"> --}}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    {{-- @stack('meta')  --}}
-    {{-- <title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@yield('meta_description', 'Miler')">
+    @stack('meta')
+    <title>
         @yield('title', config('app.name'))
-    </title> --}}
-    <title>Ferreteria la Marqueza</title>
-    <meta name="keywords" content="Marketplace ecommerce responsive HTML5 Template">
-    <meta name="description" content="Wolmart is powerful marketplace &amp; ecommerce responsive Html5 Template.">
-    <meta name="author" content="D-THEMES">
-    {{-- <link rel="shortcut icon" href="{!!asset('galio/assets/img/favicon.ico')!!}" type="image/x-icon" /> --}}
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets\images\icons\favicon.png">
-
-
-    {{-- {!! Html::style('galio/assets/css/bootstrap.min.css') !!}
+    </title>
+    <link rel="shortcut icon" href="{!!asset('galio/assets/img/favicon.ico')!!}" type="image/x-icon" />
+    {!! Html::style('galio/assets/css/bootstrap.min.css') !!}
     {!! Html::style('galio/assets/css/font-awesome.min.css') !!}
     {!! Html::style('galio/assets/css/helper.min.css') !!}
     {!! Html::style('galio/assets/css/plugins.css') !!}
-    {!! Html::style('galio/assets/css/style.css') !!} --}}
-    {{-- <style>
+    {!! Html::style('galio/assets/css/style.css') !!}
+    <style>
         .tt-query {
             -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
                -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -69,107 +59,155 @@
           .tt-suggestion p {
             margin: 0;
           }
-    </style> --}}
-    {{-- {!! Html::style('bootstrap_star_rating/css/star-rating.css') !!}
-    {!! Html::style('bootstrap_star_rating/themes/krajee-fa/theme.css') !!} --}}
-    
-    <!-- WebFont.js -->
-    <script>
-        WebFontConfig = {
-            google: { families: ['Poppins:400,500,600,700,800'] }
-        };
-        (function (d) {
-            var wf = d.createElement('script'), s = d.scripts[0];
-            wf.src = 'assets/js/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
-    <link rel="preload" href="assets\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="assets\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="assets\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="assets\fonts\wolmart.woff?png09e" as="font" type="font/woff" crossorigin="anonymous">
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" type="text/css" href="assets\vendor\fontawesome-free\css\all.min.css">
-
-
-    <!-- Plugins CSS -->
-    <!-- <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="assets\vendor\animate\animate.min.css">
-    <link rel="stylesheet" type="text/css" href="assets\vendor\nouislider\nouislider.min.css">
-    <link rel="stylesheet" type="text/css" href="assets\vendor\magnific-popup\magnific-popup.min.css">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="assets\vendor\swiper\swiper-bundle.min.css">
-    
-
-    <!-- Default CSS -->
-    
-    <link rel="stylesheet" type="text/css" href="assets\css\style.min.css">
-    {{-- <link rel="stylesheet" type="text/css" href="assets\css\demo1.min.css"> --}}
+    </style>
+    {!! Html::style('bootstrap_star_rating/css/star-rating.css') !!}
+    {!! Html::style('bootstrap_star_rating/themes/krajee-fa/theme.css') !!}
     @yield('styles')
     @stack('styles')
 </head>
 <body>
-    <div class="page-wrapper">
+    <div class="wrapper box-layout">
         <!-- modal -->
-        {{-- <div class="modal fade" id="modalInicio" role="dialog">
+        <div class="modal fade" id="modalInicio" role="dialog">
             <div class="modal-dialog modal-lg">
               <!-- Modal content-->
              <div class="modal-content">
-                <div class="newsletter-popup mfp-hide">
-                    <div class="newsletter-content">
-                        <h4 class="text-uppercase font-weight-normal ls-25">Get Up to<span class="text-primary">25% Off</span></h4>
-                        <h2 class="ls-25">Sign up to Wolmart</h2>
-                        <p class="text-light ls-10">Subscribe to the Wolmart market newsletter to
-                            receive updates on special offers.</p>
-                        <form action="#" method="get" class="input-wrapper input-wrapper-inline input-wrapper-round">
-                            <input type="email" class="form-control email font-size-md" name="email" id="email2" placeholder="Your email address" required="">
-                            <button class="btn btn-dark" type="submit">SUBMIT</button>
-                        </form>
-                        <div class="form-checkbox d-flex align-items-center">
-                            <input type="checkbox" class="custom-checkbox" id="hide-newsletter-popup" name="hide-newsletter-popup" required="">
-                            <label for="hide-newsletter-popup" class="font-size-sm text-light">Don't show this popup again.</label>
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Información sobre la demo</h4>
+               </div>
+               <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">  
+                            <h4>Videos del curso en <a href="https://youtube.com/playlist?list=PL33d8DmxxcSNNIA6DVZ5Xrx50IGsyGfUt" target="_black">La Marqueza</a></h4>
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/videoseries?list=PL33d8DmxxcSNNIA6DVZ5Xrx50IGsyGfUt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <h3>Restricciones</h3>
+                            <p>Para evitar la alteración de la información, la demo no guarda los cambios de edición, creación y eliminación de los siguientes módulos.</p>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <ul class="list-group list-group-flush">
+                                <p><strong><i class="fa fa-check"></i> Productos</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Categorías</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Etiquetas</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Marcas</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Publicaciones</strong> </p>
+                               
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <ul class="list-group list-group-flush">
+                                <p><strong><i class="fa fa-check"></i> Productos</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Categorías</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Etiquetas</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Marcas</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Publicaciones</strong> </p>
+                               
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <ul class="list-group list-group-flush">
+                                <p><strong><i class="fa fa-check"></i> Redes sociales</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Sliders</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Redes sociales</strong> </p>
+                                <p><strong><i class="fa fa-check"></i> Sliders</strong> </p>
+                            </ul>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <h3>Credenciales para realizar pruebas de pago</h3>
+                            <p>Para evitar errores se recomienda usar estas credenciales de prueba.</p>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <p><strong>PayPal</strong><br>
+                            <strong>Correo electrónico: </strong> sb-hqdis5181449@personal.example.com<br>
+                            <strong>Contraseña: </strong> pf>e0Q=V<br>
+                        </p>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <p><strong>Stripe</strong><br>
+                            <strong>Número de tarjeta: </strong> 4242 4242 4242 4242 <br>
+                            <strong>MM/YY CVC: </strong> 04/24 242 42424 <br>
+                        </p>
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <p><strong>Mercado pago</strong><br>
+                            <strong>Número: </strong> 5031 7557 3453 0604 <br>
+                            <strong>Código de seguridad: </strong> 123 <br>
+                            <strong>Fecha de vencimiento: </strong> 11/25 <br>
+                        </p>
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <p><strong>PayU</strong><br>
+                            <strong>Numero de tarjeta: </strong>4111111111111111<br>
+                            <strong>CVC: </strong>123<br>
+                            <strong>MM: </strong>08<br>
+                            <strong>YY: </strong>2020<br>
+                            <strong>Tarjeta: </strong>VISA<br>
+                            <strong>Nombre: </strong>APPROVED<br>
+                            <strong>Correo: </strong>test@payulatam.com<br>
+                            </p>
+                        </div>
+
+                        <div class="col-md-12 mt-3">
+                            <h4>Credenciales de usuario</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <p><strong>Administrador</strong></p>
+                            <p><strong>Correo: Admin@gmail.com</strong> </p>
+                            <p><strong>Contraseña: 123456789</strong> </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><strong>Cajero</strong></p>
+                            <p><strong>Correo: Cashier@gmail.com</strong> </p>
+                            <p><strong>Contraseña: 123456789</strong> </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p><strong>Cliente</strong></p>
+                            <p><strong>Correo: Client@gmail.com</strong> </p>
+                            <p><strong>Contraseña: 123456789</strong> </p>
+                        </div>
+
+
+
+                        <div class="col-md-12 mt-3">
+                            <h4>Panel administrador</h4>
+                            <p>Recuerda que para acceder al panel administrador debes usar las credenciales de administrador y cerrar sesión como cliente, de lo contrario no tendrás permisos para ver ni realizar ninguna acción en el panel administrador.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{{route('login')}}" class="sqr-btn">Ir al panel administrador </a>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Correo: Admin@gmail.com</strong> </p>
+                            <p><strong>Contraseña: 123456789</strong> </p>
+                        </div>
+
+                        <div class="col-md-12 mt-3">
+                            <h4>Videos del curso </h4>
+
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/videoseries?list=PL33d8DmxxcSNNIA6DVZ5Xrx50IGsyGfUt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
+              </div>
             </div>
-        </div> --}}
+        </div>
         <!-- fin modal -->
         <!-- header area start -->
-        <header class="header header-border">
+        <header>
+
             <!-- header top start -->
-            <div class="header-top">
-                <div class="container">
-                    <div class="header-left">
-                        <div class="welcome-msg">
-                            <a href="mailto:{{$web_company->email}}">
-                                <i class="fa fa-envelope"></i>
-                                {{$web_company->email}}
-                            </a>
-                            <span class="divider d-lg-show"> | </span>
-                            <a href="tel:{{$web_company->phone}}">
-                                <i class="fa fa-phone"></i>
-                                {{$web_company->phone}}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="header-right">
-                        <a href="{{route('web.blog')}}" class="d-lg-show">Blog</a>
-                        <a href="{{route('web.contact_us')}}" class="d-lg-show">Contáctanos</a>
-                        @guest
-                        <a href="{{route('web.login_register')}}" class="d-lg-show login sign-in"><i class="w-icon-account"></i>Iniciar sesión</a>
-                        <span class="delimiter d-lg-show">/</span>
-                        <a href="{{route('web.login_register')}}" class="ml-0 d-lg-show login register">Registro</a>
-                        @else
-                        <a href="{{route('web.my_account')}}" class="d-lg-show">Mi cuenta</a>
-                        @endguest
-                        <a href="{{route('web.cart')}}" class="d-lg-show">Mi Carrito</a>
-                    </div>
-                </div>
-            </div>
-            <!-- header top end -->
-            <!-- header top start -->
-            {{-- <div class="header-top-area bg-gray text-center text-md-left">
+            <div class="header-top-area bg-gray text-center text-md-left">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-5">
@@ -188,20 +226,17 @@
                             <div class="header-top-right float-md-right float-none">
                                 <nav>
                                     <ul>
-                                        
                                     <li>
-                                        <a href="{{route('web.blog')}}" class="d-lg-show">Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('web.contact_us')}}" class="d-lg-show"> Contáctanos</a>
+                                        <a href="#" data-toggle="modal" data-target="#modalInicio">
+                                            Demo
+                                        </a>
                                     </li>
                                     @guest
                                     <li>
-                                        <a href="assets\ajax\login.html" class="d-lg-show login sign-in"><i class="w-icon-account"></i>Iniciar sesión</a>
+                                        <a href="{{ route('web.login_register') }}">Iniciar sesión</a>
                                     </li>
-                                    <span class="delimiter d-lg-show">/</span>
                                     <li>
-                                        <a href="{{ route('web.login_register') }}" class="ml-0 d-lg-show login register">Registro</a>
+                                        <a  href="{{ route('web.login_register') }}">Registro</a>
                                     </li>
                                     @else
                                     <li>
@@ -211,7 +246,7 @@
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="myaccount">
-                                                <a href="{{route('web.my_account')}}" class="dropdown-item">Mi cuenta</a>
+                                                <a class="dropdown-item" href="{{route('web.my_account')}}">Mi cuenta</a>
                                                 <a class="dropdown-item" href="{{route('web.orders')}}"> Pedidos</a>
                                                 
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -231,80 +266,88 @@
                                         <li>
                                             <a href="{{route('web.checkout')}}">Pagos</a>
                                         </li>
-                                        @endif  -}}
+                                        @endif --}}
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <!-- header top end -->
 
             <!-- header middle start -->
-            <div class="header-middle">
+            <div class="header-middle-area pt-20 pb-20">
                 <div class="container">
-                    <div class="header-left mr-md-4">
-                        <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
-                        </a>
-                        <a href="{{route("web.welcome")}}" class="logo ml-lg-0">
-                            <img src="{{asset('melody/images/logo.svg')}}" alt="logo" width="144" height="45">
-                        </a>
-                        @include('layouts._search_products')
-                    </div>
-                    <div class="header-right ml-4">
-                        <div class="header-call d-xs-show d-lg-flex align-items-center">
-                            <a href="tel:#" class="w-icon-call"></a>
-                            <div class="call-info d-lg-show">
-                                <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                                    <a href="mailto:{{$web_company->email}}" class="text-capitalize">Chat en vivo</a> o :</h4>
-                                <a href="tel:{{$web_company->phone}}" class="phone-number font-weight-bolder ls-50">{{$web_company->phone}}</a>
+                    <div class="row align-items-center">
+                        <div class="col-lg-3">
+                            <div class="brand-logo">
+                                <a href="{{route('web.welcome')}}">
+                                    <img src="{!!asset('galio/assets/img/logo/logo3.png')!!}" alt="{{$web_company->name}}">
+                                </a>
+                            </div>
+                        </div> <!-- end logo area -->
+                        <div class="col-lg-9">
+                            <div class="header-middle-right">
+                                <div class="header-middle-shipping mb-20">
+                                    <div class="single-block-shipping">
+                                        <div class="shipping-icon">
+                                            <i class="fa fa-clock-o"></i>
+                                        </div>
+                                        <div class="shipping-content">
+                                            <h5>Horario de atención</h5>
+                                            <span>Lun a dom: 8.00-18.00</span>
+                                        </div>
+                                    </div> <!-- end single shipping -->
+                                    <div class="single-block-shipping">
+                                        <div class="shipping-icon">
+                                            <i class="fa fa-truck"></i>
+                                        </div>
+                                        <div class="shipping-content">
+                                            <h5>envío gratis</h5>
+                                            <span>En pedidos superiores a $199</span>
+                                        </div>
+                                    </div> <!-- end single shipping -->
+                                    <div class="single-block-shipping">
+                                        <div class="shipping-icon">
+                                            <i class="fa fa-money"></i>
+                                        </div>
+                                        <div class="shipping-content">
+                                            <h5>devoluciones</h5>
+                                            <span>Dentro de los 30 días posteriores</span>
+                                        </div>
+                                    </div> <!-- end single shipping -->
+                                </div>
+                                <div class="header-middle-block">
+                                   
+                                    @include('layouts._search_products')
+                                    
+                                    @include('layouts._mini_cart')
+
+                                </div>
                             </div>
                         </div>
-                        <a class="wishlist label-down link d-xs-show" href="wishlist.html">
-                            <i class="w-icon-heart"></i>
-                            <span class="wishlist-label d-lg-show">Lista de deseos</span>
-                        </a>
-                        <a class="compare label-down link d-xs-show" href="compare.html">
-                            <i class="w-icon-compare"></i>
-                            <span class="compare-label d-lg-show">Comparar</span>
-                        </a>
-                        @include('layouts._mini_cart')
                     </div>
                 </div>
             </div>
             <!-- header middle end -->
 
             <!-- main menu area start -->
-            <div class="header-bottom sticky-content fix-top sticky-header has-dropdown">
-                <div class="container">
-                    <div class="inner-wrap">
-                        <div class="header-left">
-                            @include('layouts._category_toggle_wrap')
-                            @include('layouts._main_menu')
-                        </div>
-                        {{-- <div class="header-right">
-                            <a href="#" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Track Order</a>
-                            <a href="#"><i class="w-icon-sale"></i>Daily Deals</a>
-                        </div> --}}
-                    </div>
-                </div>
-            </div>
-            <!-- main menu area end -->
-            <!-- main menu area start -->
-            {{-- <div class="main-header-wrapper bdr-bottom1">
+            <div class="main-header-wrapper bdr-bottom1">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="main-header-inner">
+
                                 @include('layouts._category_toggle_wrap')
+
                                 @include('layouts._main_menu')
                             </div>
                         </div>
                         <div class="col-12 d-block d-lg-none"><div class="mobile-menu"></div></div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <!-- main menu area end -->
 
         </header>
@@ -314,153 +357,7 @@
 
         @stack('modal')
 
-        <footer class="footer appear-animate" data-animation-options="{
-            'name': 'fadeIn'}">
-            <div class="footer-newsletter bg-primary">
-                <div class="container">
-                    @if (session('mensaje'))
-                        <div class="alert alert-icon alert-error alert-bg alert-inline ">
-                            <h4 class="alert-title">
-                                <i class="w-icon-times-circle"></i><font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">¡Oh, error!</font></font>
-                                </h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{session('mensaje')}}
-                        </div>
-                        <br>
-                    @endif
-                    @if ($errors->has('subscription_email'))
-                        <div class="alert alert-icon alert-error alert-bg alert-inline ">
-                            <h4 class="alert-title">
-                                <i class="w-icon-times-circle"></i><font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">¡Oh, error!</font></font>
-                                </h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{ $errors->first('subscription_email') }}
-                        </div>
-                        <br>
-                    @endif 
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-xl-5 col-lg-6">
-                            <div class="icon-box icon-box-side text-white">
-                                <div class="icon-box-icon d-inline-flex">
-                                    <i class="w-icon-envelop3"></i>
-                                </div>
-                                <div class="icon-box-content">
-                                    <h4 class="icon-box-title text-white text-uppercase font-weight-bold">Subscribe To
-                                        Our Newsletter</h4>
-                                    <p class="text-white">Get all the latest information on Events, Sales and Offers.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-7 col-lg-6 col-md-9 mt-4 mt-lg-0 ">
-                            <form action="{{route('web.subscription_email')}}" method="post" class="input-wrapper input-wrapper-inline input-wrapper-rounded">
-                                @csrf
-                                <input type="email" class="form-control mr-2 bg-white" name="subscription_email" id="email" placeholder="Your E-mail Address">
-                                <button class="btn btn-dark btn-rounded" type="submit">Subscribe<i class="w-icon-long-arrow-right"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="footer-top">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="widget widget-about">
-                                <a href="demo1.html" class="logo-footer">
-                                    <img src="{{asset('melody/images/logo.svg')}}" alt="logo-footer" width="144" height="45">
-                                </a>
-                                <div class="widget-body">
-                                    <p class="widget-about-title">Tienes una pregunta? Llámanos 24/7</p>
-                                    <div class="header-call d-ls-show d-lg-flex align-items-center">
-                                        <a href="tel:#" class="w-icon-call"></a>
-                                        <div class="call-info d-xg-show">
-                                            {{--<h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
-                                                <a href="mailto:#" class="text-capitalize">Live Chat</a> or :</h4> --}}
-                                            <a href="tel:{{$web_company->phone}}" class="widget-about-call">{{$web_company->phone}}</a>
-                                        </div>
-                                    </div>
-                                    <p class="widget-about-desc">Registrese ahora para recibir actualizaciones sobre los íconos y cupones
-                                        de ascenso ahora mismo. <br><a href="mailto:{{$web_company->email}}" class="w-icon-envelop2"></a>
-                                        <a href="mailto:{{$web_company->email}}" class="text-capitalize">{{$web_company->email}}</a>
-                                        <br><a href="{{$web_company->address}}" class="w-icon-map-marker"></a>
-                                        <a href="{{$web_company->address}}" class="text-capitalize">{{$web_company->address}}</a>
-                                        <a class="btn btn-primay btn-outline btn-rounded" href="{{url($web_company->google_maps_link)}}">Abrir en Google Maps</a>
-                                   </p>
-                                    {{-- <div class="social-icons social-icons-colored">
-                                        <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
-                                        <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
-                                        <a href="#" class="social-icon social-instagram w-icon-instagram"></a>
-                                        <a href="#" class="social-icon social-youtube w-icon-youtube"></a>
-                                        <a href="#" class="social-icon social-pinterest w-icon-pinterest"></a>
-                                    </div> --}}
-                                    <div class="social-icons social-icons-colored">
-                                        @foreach ($web_social_networks as $web_social_network)
-                                        <a href="{{url($web_social_network->url)}}" data-toggle="tooltip" data-placement="top" title="{{$web_social_network->name}}" class="social-icon social-{{$web_social_network->icon}} w-icon-{{$web_social_network->icon}}"></a>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="widget">
-                                <h3 class="widget-title">Company</h3>
-                                <ul class="widget-body">
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="#">Team Member</a></li>
-                                    <li><a href="#">Career</a></li>
-                                    <li><a href="contact-us.html">Contact Us</a></li>
-                                    <li><a href="#">Affilate</a></li>
-                                    <li><a href="#">Order History</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="widget">
-                                <h4 class="widget-title">My Account</h4>
-                                <ul class="widget-body">
-                                    <li><a href="#">Track My Order</a></li>
-                                    <li><a href="cart.html">View Cart</a></li>
-                                    <li><a href="login.html">Sign In</a></li>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="wishlist.html">My Wishlist</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="widget">
-                                <h4 class="widget-title">Customer Service</h4>
-                                <ul class="widget-body">
-                                    <li><a href="#">Payment Methods</a></li>
-                                    <li><a href="#">Money-back guarantee!</a></li>
-                                    <li><a href="#">Product Returns</a></li>
-                                    <li><a href="#">Support Center</a></li>
-                                    <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Term and Conditions</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <div class="footer-left">
-                        <p class="copyright">Copyright © 2022 Tienda La Marqueza. Todos los derechos reservados.</p>
-                    </div>
-                    <div class="footer-right">
-                        <span class="payment-label mr-lg-8">Estamos utilizando el pago seguro para</span>
-                        @foreach ($web_payment_methods as $web_payment_method)
-                        <figure class="payment">
-                            <img src="/{{$web_payment_method->image}}" alt="{{$web_payment_method->name}}" >
-                        </figure>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        
-
-        {{-- <footer>
+        <footer>
             <!-- footer top start -->
             
             <div class="footer-top bg-black pt-14 pb-14">
@@ -549,7 +446,7 @@
                                         <li><a href="{{route('web.my_account')}}">Mi cuenta</a></li>
                                         {{--  @if ($shopping_cart->has_products())
                                         <li><a href="{{route('web.checkout')}}">Pagar</a></li>
-                                        @endif  -}}
+                                        @endif  --}}
                                        
                                         <li><a href="{{route('web.orders')}}">Mis ordenes</a></li>
                                         @endguest
@@ -573,7 +470,7 @@
                                                     {{$web_category->name}}
                                                 </a>
                                             </li>
-                                        @endforeach -}}
+                                        @endforeach --}}
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -591,7 +488,7 @@
                                                 {{$web_tag_product->name}}
                                             </a>
                                         </li>
-                                        @endforeach -}}
+                                        @endforeach --}}
                                     </ul>
                                 </div>
                             </div> <!-- single widget end -->
@@ -618,8 +515,7 @@
             </div>
             <!-- footer bootom end -->
 
-        </footer> --}}
-        <!-- footer area end -->
+        </footer>
         <!-- footer area end -->
 
     </div>
@@ -630,17 +526,15 @@
     <!-- Quick view modal end -->
 
     <!-- Scroll to top start -->
-    {{-- <div class="scroll-top not-visible">
+    <div class="scroll-top not-visible">
         <i class="fa fa-angle-up"></i>
-    </div> --}}
+    </div>
     <!-- Scroll to Top End -->
 
-    <a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button"> <i class="w-icon-angle-up"></i> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70">
-        <circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35" r="34" style="stroke-dasharray: 16.4198, 400;"></circle>
-    </svg> </a>
 
 
-    {{-- <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
+
+    <!--All jQuery, Third Party Plugins & Activation (main.js) Files-->
     {!! Html::script('galio/assets/js/vendor/modernizr-3.6.0.min.js') !!}
     <!-- Jquery Min Js -->
     {!! Html::script('galio/assets/js/vendor/jquery-3.3.1.min.js') !!}
@@ -654,7 +548,7 @@
     {!! Html::script('galio/assets/js/ajax-mail.js') !!}
     <!-- Active Js -->
     {!! Html::script('galio/assets/js/main.js') !!}
-    <!--  {!! Html::script('galio/assets/js/main.js') !!}  -->
+    {{--  {!! Html::script('galio/assets/js/main.js') !!}  --}}
     <!-- Switcher JS [Please Remove this when Choose your Final Projct] -->
     {!! Html::script('galio/assets/js/switcher.js') !!}
 
@@ -662,22 +556,7 @@
 
     {!! Html::script('bootstrap_star_rating/js/star-rating.js') !!}
     {!! Html::script('bootstrap_star_rating/js/locales/es.js') !!}
-    {!! Html::script('bootstrap_star_rating/themes/krajee-fa/theme.js') !!} --}}
-
-    <!-- Plugin JS File -->
-    <script src="assets\vendor\jquery\jquery.min.js"></script>
-    <script src="assets\vendor\jquery.plugin\jquery.plugin.min.js"></script>
-    <script src="assets\vendor\imagesloaded\imagesloaded.pkgd.min.js"></script>
-    <script src="assets\vendor\zoom\jquery.zoom.js"></script>
-    <script src="assets\vendor\jquery.countdown\jquery.countdown.min.js"></script>
-    <script src="assets\vendor\magnific-popup\jquery.magnific-popup.min.js"></script>
-    <script src="assets\vendor\skrollr\skrollr.min.js"></script>
-
-    <!-- Swiper JS -->
-    <script src="assets\vendor\swiper\swiper-bundle.min.js"></script>
-
-    <!-- Main JS -->
-    <script src="assets\js\main.min.js"></script>
+    {!! Html::script('bootstrap_star_rating/themes/krajee-fa/theme.js') !!}
 
     @include('sweetalert::alert')
     
@@ -694,5 +573,6 @@
     @endif
     
 </body>
+
 
 </html>

@@ -1,4 +1,4 @@
-<div class="main-menu">
+{{-- <div class="main-menu">
     <nav id="mobile-menu">
         <ul>
 
@@ -14,7 +14,7 @@
             {!! active_class(route('web.shop_grid')) !!}
             ">
                 <a href="{{route('web.shop_grid')}}">
-                      <i class="fa fa-shopping-bag"></i> 
+                    {{--  <i class="fa fa-shopping-bag"></i>  -}}
                     Tienda
                 </a>
             </li>
@@ -23,7 +23,7 @@
             {!! active_class(route('web.blog')) !!}
             ">
                 <a href="{{route('web.blog')}}">
-                      <i class="fa fa-book"></i> 
+                    {{--  <i class="fa fa-book"></i>  -}}
                     Blog
                 </a>
             </li>
@@ -39,9 +39,9 @@
             </li>
         </ul>
     </nav>
-</div>
+</div> --}}
 
-{{--}}
+
 <nav class="main-nav">
     <ul class="menu active-underline" id="mobile-menu">
         <li class="{!! active_class(route('web.welcome')) !!}">
@@ -51,14 +51,14 @@
             {!! active_class(route('web.shop_grid')) !!}
             ">
                 <a href="{{route('web.shop_grid')}}">
-                    {{--  <i class="fa fa-shopping-bag"></i>  -}}
+                    {{--  <i class="fa fa-shopping-bag"></i>  --}}
                     Tienda
                 </a>
         </li>
             
         <li class="{!! active_class(route('web.blog')) !!}">
                 <a href="{{route('web.blog')}}">
-                    {{--  <i class="fa fa-book"></i>  -}}
+                    {{--  <i class="fa fa-book"></i>  --}}
                     Blog
                 </a>
         </li>
@@ -74,4 +74,3 @@
         </li>
     </ul>
 </nav>
---}}

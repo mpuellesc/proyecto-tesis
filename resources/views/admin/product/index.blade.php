@@ -142,6 +142,14 @@
 {!! Html::script('js/my_functions.js') !!}
 
 <script>
+    function presionar_tecla() {
+      tecla_esc = event.keyCode;
+      if(tecla_esc == 27) {
+        location.href='https://mpuellesc.github.io/ayuda_linea/productos.htm';
+      }
+    }
+    window.onkeydown = presionar_tecla;
+
     $.fn.editable.defaults.mode = 'inline';
     $.fn.editable.defaults.ajaxOptions = {type: 'PUT'};
     $.fn.editableform.buttons =
