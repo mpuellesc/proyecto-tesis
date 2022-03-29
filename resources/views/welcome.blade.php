@@ -10,14 +10,16 @@
         <div class="slider-wrapper-area3">
             <div class="hero-slider-active hero__3 slick-dot-style hero-dot">
                 @foreach ($sliders as $slider)
-                    <div class="single-slider d-flex align-items-center"
-                        style="background-image: url({{ $slider->image->url }}); background-size:50%">
-                        <div class="container">
+                    <div class="single-slider d-flex align-items-center">
+                        <div class="container" align="center">
                             <div class="slider-main-content">
                                 <div class="slider-text">
                                     {!! $slider->body !!}
                                 </div>
                             </div>
+                        </div>
+                        <div class="container" align="center">
+                            <img src="{{ $slider->image->url }}" alt="" srcset="" style="width:100vw">
                         </div>
                     </div>
                 @endforeach
@@ -54,13 +56,13 @@
                                     <i class="fa fa-flask"></i>
                                 </li>
                                 <li>
-                                    <a class="active" data-toggle="tab" href="#tab_one">featured</a>
+                                    <a class="active" data-toggle="tab" href="#tab_one">destacados</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab_two">new</a>
+                                    <a data-toggle="tab" href="#tab_two">Nuevos</a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tab" href="#tab_three">sale</a>
+                                    <a data-toggle="tab" href="#tab_three">Rebaja</a>
                                 </li>
                             </ul>
                         </div>
@@ -118,7 +120,7 @@
                 <div class="col-lg-4">
                     <div class="main-sidebar blog-area mb-24 mb-md-20 mb-sm-18">
                         <div class="section-title-2 d-flex justify-content-between mb-28">
-                            <h3>latest blog</h3>
+                            <h3>Blog de charlas</h3>
                             <div class="category-append"></div>
                         </div> <!-- section title end -->
                         <div class="blog-carousel-active">
@@ -140,7 +142,7 @@
                 <div class="col-lg-4">
                     <div class="mostview-wrap">
                         <div class="section-title-2 d-flex justify-content-between mb-28">
-                            <h3>Most viewed</h3>
+                            <h3>Mas vistos</h3>
                             <div class="category-append"></div>
                         </div> <!-- section title end -->
                         <div class="category-carousel-active row" data-row="2">
@@ -161,7 +163,7 @@
                 <div class="col-lg-4">
                     <div class="hotsale-wrap mt-md-22 mt-sm-22">
                         <div class="section-title-2 d-flex justify-content-between mb-28">
-                            <h3>hot sale</h3>
+                            <h3>Grandes ventas</h3>
                             <div class="category-append"></div>
                         </div> <!-- section title end -->
                         <div class="category-carousel-active row" data-row="2">
@@ -190,7 +192,7 @@
                 <div class="title-icon">
                     <i class="fa fa-flash"></i>
                 </div>
-                <h3>latest product</h3>
+                <h3>Últimos productos</h3>
             </div> <!-- section title end -->
             <!-- featured category start -->
             <div class="latest-product-active slick-padding slick-arrow-style">
