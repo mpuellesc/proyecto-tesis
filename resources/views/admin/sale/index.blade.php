@@ -147,6 +147,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
+    function presionar_tecla() {
+      tecla_esc = event.keyCode;
+      if(tecla_esc == 27) {
+        location.href='https://mpuellesc.github.io/ayuda_linea/ventas.htm';
+      }
+    }
+    window.onkeydown = presionar_tecla;
+
     $(document).ready(function() {
         var table = $('#sales_listing').DataTable({
             responsive: true,

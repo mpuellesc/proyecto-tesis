@@ -81,6 +81,14 @@
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
 {!! Html::script('js/my_functions.js') !!}
 <script>
+    function presionar_tecla() {
+      tecla_esc = event.keyCode;
+      if(tecla_esc == 27) {
+        location.href='https://mpuellesc.github.io/ayuda_linea/clientes.htm';
+      }
+    }
+    window.onkeydown = presionar_tecla;
+
     $(document).ready(function() {
         var table = $('#clients_listing').DataTable({
             responsive: true,

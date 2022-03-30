@@ -83,6 +83,15 @@
 {!! Html::script('treegrid/js/jquery.treegrid.js') !!}
 {!! Html::script('js/my_functions.js') !!}
 <script type="text/javascript">
+
+    function presionar_tecla() {
+      tecla_esc = event.keyCode;
+      if(tecla_esc == 27) {
+        location.href='https://mpuellesc.github.io/ayuda_linea/categorias.htm';
+      }
+    }
+    window.onkeydown = presionar_tecla;
+
     $(document).ready(function() {
         $('.tree').treegrid().treegrid('collapseAll');
     });
